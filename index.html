@@ -1,24 +1,329 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KukuLink Super</title>
+
+<title>KukuLink</title>
+
+<!-- PWA -->
 <link rel="manifest" href="manifest.json">
+
+<!-- ICONS -->
+<link rel="icon" type="image/png" href="assets/logo512.png">
+<link rel="apple-touch-icon" href="assets/logo512.png">
+
+<!-- MOBILE SETTINGS -->
+<meta name="theme-color" content="#ff9800">
+<meta name="background-color" content="#111111">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<!-- STYLES -->
 <link rel="stylesheet" href="styles.css">
-<link rel="icon" href="assets/logo512.png">
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#0f0f0f;
+color:white;
+overflow-x:hidden;
+}
+
+/* SPLASH SCREEN */
+
+#splash{
+position:fixed;
+width:100%;
+height:100vh;
+background:linear-gradient(135deg,#ff9800,#ffcc70);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:9999;
+animation:fadeSplash 3s forwards;
+}
+
+@keyframes fadeSplash{
+0%{opacity:1;}
+80%{opacity:1;}
+100%{opacity:0;visibility:hidden;}
+}
+
+.splash-logo{
+width:130px;
+height:130px;
+border-radius:30px;
+margin-bottom:20px;
+}
+
+/* HEADER */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 20px;
+background:#111;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 0 20px rgba(0,0,0,0.5);
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.brand img{
+width:50px;
+height:50px;
+border-radius:15px;
+}
+
+nav{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+
+nav a{
+text-decoration:none;
+color:#ffb300;
+font-size:14px;
+font-weight:bold;
+transition:0.3s;
+}
+
+nav a:hover{
+color:white;
+}
+
+/* HERO */
+
+.hero{
+height:80vh;
+background:url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=1200&auto=format&fit=crop') center/cover;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.hero-overlay{
+background:rgba(0,0,0,0.65);
+padding:35px;
+border-radius:25px;
+max-width:700px;
+width:100%;
+text-align:center;
+backdrop-filter:blur(5px);
+animation:slideUp 1s ease;
+}
+
+@keyframes slideUp{
+from{
+transform:translateY(50px);
+opacity:0;
+}
+to{
+transform:translateY(0);
+opacity:1;
+}
+}
+
+.hero h1{
+font-size:42px;
+margin-bottom:15px;
+color:#ffcc70;
+}
+
+.hero p{
+font-size:18px;
+margin-bottom:20px;
+line-height:1.6;
+}
+
+/* BUTTONS */
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:12px;
+background:#ff9800;
+color:white;
+font-weight:bold;
+cursor:pointer;
+margin:8px;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.05);
+background:#ffb300;
+}
+
+/* GENERAL SECTIONS */
+
+.section{
+padding:50px 20px;
+}
+
+.section h2{
+margin-bottom:25px;
+font-size:30px;
+color:#ffcc70;
+}
+
+/* CARDS */
+
+.card,
+.post,
+.market-card{
+background:#1a1a1a;
+padding:20px;
+border-radius:22px;
+margin-top:20px;
+box-shadow:0 0 20px rgba(0,0,0,0.3);
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* INPUTS */
+
+input,
+textarea{
+width:100%;
+padding:14px;
+margin-top:12px;
+border:none;
+border-radius:12px;
+background:#2a2a2a;
+color:white;
+}
+
+/* PROFILE */
+
+.profile-pic{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+display:block;
+margin:auto;
+margin-bottom:15px;
+border:4px solid #ff9800;
+}
+
+/* SOCIAL POSTS */
+
+.post-buttons{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+margin-top:12px;
+}
+
+/* MARKETPLACE */
+
+.market-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.market-card img{
+width:100%;
+height:190px;
+object-fit:cover;
+border-radius:18px;
+}
+
+/* SOCIAL LINKS */
+
+.social-links{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:20px;
+}
+
+/* FOOTER */
+
+footer{
+padding:40px 20px;
+background:#111;
+text-align:center;
+margin-top:40px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+header{
+flex-direction:column;
+gap:15px;
+}
+
+nav{
+justify-content:center;
+}
+
+.hero{
+height:65vh;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+}
+
+</style>
+
 </head>
+
 <body>
 
+<!-- SPLASH -->
+
 <div id="splash">
-<img src="assets/logo512.png" class="logo">
+<img src="assets/logo512.png" class="splash-logo">
 <h1>KukuLink</h1>
 <p>Smart Poultry Social Marketplace</p>
 </div>
 
+<!-- HEADER -->
+
 <header>
+
 <div class="brand">
-<img src="assets/logo512.png" class="toplogo">
+<img src="assets/logo512.png">
 <h2>KukuLink</h2>
 </div>
 
@@ -30,119 +335,290 @@
 <a href="#payments">Payments</a>
 <a href="#profile">Profile</a>
 </nav>
+
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
-<div class="overlay">
+
+<div class="hero-overlay">
+
 <h1>Modern Poultry Platform</h1>
-<p>Farmers • Buyers • Vets • Suppliers</p>
-<button onclick="openGoogle()">Search Poultry</button>
-<button onclick="openMaps()">Google Maps</button>
+
+<p>
+Connect Farmers, Buyers, Veterinarians, Suppliers and Hatcheries
+inside one professional poultry ecosystem.
+</p>
+
+<button onclick="openGoogle()">
+Search Poultry Near Me
+</button>
+
+<button onclick="openMaps()">
+Open Google Maps
+</button>
+
 </div>
+
 </section>
+
+<!-- PROFILE -->
 
 <section id="profile" class="section">
-<h2>Profile Creation</h2>
+
+<h2>Create Profile</h2>
+
 <div class="card">
-<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" id="preview" class="profilepic">
+
+<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" id="preview" class="profile-pic">
+
 <input type="file" id="upload">
+
 <input type="text" placeholder="Your Name">
+
 <input type="text" placeholder="Farm Name">
-<textarea placeholder="Farm Description"></textarea>
+
+<input type="date">
+
+<textarea placeholder="Tell people about your poultry farm"></textarea>
+
 <button>Save Profile</button>
+
 </div>
+
 </section>
 
+<!-- FEED -->
+
 <section id="feed" class="section">
+
 <h2>Farmer Social Feed</h2>
 
 <div class="post">
-<h3>Grace Poultry ✅</h3>
+
+<h3>Grace Poultry Farm ✅</h3>
+
 <p>🐣 500 chicks delivered today.</p>
+
+<div class="post-buttons">
 <button>❤️ Like</button>
 <button>💬 Comment</button>
 <button>🔁 Repost</button>
+</div>
+
 </div>
 
 <div class="post">
-<h3>John Farm ✅</h3>
-<p>🚀 Vaccinated all broilers.</p>
+
+<h3>John Broilers ✅</h3>
+
+<p>🚀 Vaccinated all broilers successfully.</p>
+
+<div class="post-buttons">
 <button>❤️ Like</button>
 <button>💬 Comment</button>
 <button>🔁 Repost</button>
 </div>
+
+</div>
+
 </section>
+
+<!-- MARKET -->
 
 <section id="market" class="section">
+
 <h2>Poultry Marketplace</h2>
 
-<div class="grid">
-<div class="market">
+<div class="market-grid">
+
+<div class="market-card">
+
 <img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=800&auto=format&fit=crop">
-<h3>Broilers</h3>
-<p>$8</p>
-<button>Buy</button>
+
+<h3>Healthy Broilers</h3>
+
+<p>$8 Each</p>
+
+<button>Buy Now</button>
+
 </div>
 
-<div class="market">
+<div class="market-card">
+
 <img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=800&auto=format&fit=crop">
-<h3>Eggs</h3>
-<p>$5</p>
-<button>Order</button>
+
+<h3>Fresh Eggs</h3>
+
+<p>$5 Tray</p>
+
+<button>Order Eggs</button>
+
 </div>
 
-<div class="market">
+<div class="market-card">
+
 <img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?q=80&w=800&auto=format&fit=crop">
-<h3>Feeds</h3>
+
+<h3>Feeds & Drinkers</h3>
+
 <p>$25</p>
-<button>Buy</button>
+
+<button>Buy Feeds</button>
+
 </div>
+
 </div>
+
 </section>
+
+<!-- VETERINARY -->
 
 <section id="vet" class="section">
+
 <h2>Veterinary Marketplace</h2>
+
 <div class="card">
-<h3>Dr Sarah</h3>
-<p>Poultry Specialist</p>
-<button onclick="window.location.href='mailto:vet@kukulink.com'">Contact Vet</button>
+
+<h3>Dr Sarah Poultry Vet</h3>
+
+<p>Poultry Disease Specialist</p>
+
+<button onclick="window.location.href='mailto:vet@kukulink.com'">
+Contact Vet
+</button>
+
 </div>
+
 </section>
+
+<!-- CALENDAR -->
 
 <section id="calendar" class="section">
+
 <h2>Farm Calendar & Notifications</h2>
+
 <div class="card">
-<p>📅 Vaccination - Monday</p>
-<p>🔔 Feed Delivery - Friday</p>
-<p>🐔 Egg Collection - Daily</p>
+
+<p>📅 Vaccination — Monday 9AM</p>
+
+<p>🔔 Feed Delivery — Friday</p>
+
+<p>🐔 Egg Collection — Daily</p>
+
+<p>🚨 Low Feed Stock Alert</p>
+
 </div>
+
 </section>
+
+<!-- PAYMENTS -->
 
 <section id="payments" class="section">
+
 <h2>Payment Mockup</h2>
+
 <div class="card">
+
 <input type="text" placeholder="Mobile Money Number">
+
 <input type="number" placeholder="Amount">
-<button>Pay Now</button>
+
+<button>Pay with Mobile Money</button>
+
+<input type="text" placeholder="Visa / Mastercard">
+
+<button>Pay with Card</button>
+
 </div>
+
 </section>
+
+<!-- SOCIAL LINKS -->
 
 <section class="section">
-<h2>Social Media & Browser Links</h2>
-<div class="socials">
-<button onclick="window.open('https://facebook.com')">Facebook</button>
-<button onclick="window.open('https://instagram.com')">Instagram</button>
-<button onclick="window.open('https://tiktok.com')">TikTok</button>
-<button onclick="window.open('https://google.com')">Google</button>
-<button onclick="window.open('https://youtube.com')">YouTube</button>
+
+<h2>Social Platforms</h2>
+
+<div class="social-links">
+
+<button onclick="window.open('https://facebook.com')">
+Facebook
+</button>
+
+<button onclick="window.open('https://instagram.com')">
+Instagram
+</button>
+
+<button onclick="window.open('https://tiktok.com')">
+TikTok
+</button>
+
+<button onclick="window.open('https://youtube.com')">
+YouTube
+</button>
+
+<button onclick="window.open('https://google.com')">
+Google
+</button>
+
 </div>
+
 </section>
 
+<!-- FOOTER -->
+
 <footer>
-<h3>KukuLink</h3>
-<p>Professional Poultry Marketplace</p>
+
+<h2>KukuLink</h2>
+
+<p>
+Professional Poultry Marketplace & Social Platform
+</p>
+
 </footer>
 
-<script src="app.js"></script>
+<script>
+
+/* GOOGLE */
+
+function openGoogle(){
+window.open(
+'https://google.com/search?q=poultry+near+me'
+);
+}
+
+/* MAPS */
+
+function openMaps(){
+window.open('https://maps.google.com');
+}
+
+/* PROFILE UPLOAD */
+
+const upload=document.getElementById('upload');
+const preview=document.getElementById('preview');
+
+upload.addEventListener('change',function(){
+
+const file=this.files[0];
+
+if(file){
+preview.src=URL.createObjectURL(file);
+}
+
+});
+
+/* PWA */
+
+if('serviceWorker' in navigator){
+
+navigator.serviceWorker.register('sw.js');
+
+}
+
+</script>
+
 </body>
 </html>
