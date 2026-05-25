@@ -1,0 +1,11 @@
+{
+"name":"KukuLink Super",
+"short_name":"KukuLink",
+"start_url":"./",
+"display":"standalone",
+"background_color":"#111111",
+"theme_color":"#ff9800",
+"icons":[
+{"src":"assets/logo512.png","sizes":"512x512","type":"image/png"}
+]
+}

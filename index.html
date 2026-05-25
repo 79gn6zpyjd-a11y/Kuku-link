@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KukuLink Super</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="assets/logo512.png">
+</head>
+<body>
+
+<div id="splash">
+<img src="assets/logo512.png" class="logo">
+<h1>KukuLink</h1>
+<p>Smart Poultry Social Marketplace</p>
+</div>
+
+<header>
+<div class="brand">
+<img src="assets/logo512.png" class="toplogo">
+<h2>KukuLink</h2>
+</div>
+
+<nav>
+<a href="#feed">Feed</a>
+<a href="#market">Marketplace</a>
+<a href="#vet">Veterinary</a>
+<a href="#calendar">Calendar</a>
+<a href="#payments">Payments</a>
+<a href="#profile">Profile</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="overlay">
+<h1>Modern Poultry Platform</h1>
+<p>Farmers • Buyers • Vets • Suppliers</p>
+<button onclick="openGoogle()">Search Poultry</button>
+<button onclick="openMaps()">Google Maps</button>
+</div>
+</section>
+
+<section id="profile" class="section">
+<h2>Profile Creation</h2>
+<div class="card">
+<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" id="preview" class="profilepic">
+<input type="file" id="upload">
+<input type="text" placeholder="Your Name">
+<input type="text" placeholder="Farm Name">
+<textarea placeholder="Farm Description"></textarea>
+<button>Save Profile</button>
+</div>
+</section>
+
+<section id="feed" class="section">
+<h2>Farmer Social Feed</h2>
+
+<div class="post">
+<h3>Grace Poultry ✅</h3>
+<p>🐣 500 chicks delivered today.</p>
+<button>❤️ Like</button>
+<button>💬 Comment</button>
+<button>🔁 Repost</button>
+</div>
+
+<div class="post">
+<h3>John Farm ✅</h3>
+<p>🚀 Vaccinated all broilers.</p>
+<button>❤️ Like</button>
+<button>💬 Comment</button>
+<button>🔁 Repost</button>
+</div>
+</section>
+
+<section id="market" class="section">
+<h2>Poultry Marketplace</h2>
+
+<div class="grid">
+<div class="market">
+<img src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=800&auto=format&fit=crop">
+<h3>Broilers</h3>
+<p>$8</p>
+<button>Buy</button>
+</div>
+
+<div class="market">
+<img src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?q=80&w=800&auto=format&fit=crop">
+<h3>Eggs</h3>
+<p>$5</p>
+<button>Order</button>
+</div>
+
+<div class="market">
+<img src="https://images.unsplash.com/photo-1589927986089-35812388d1f4?q=80&w=800&auto=format&fit=crop">
+<h3>Feeds</h3>
+<p>$25</p>
+<button>Buy</button>
+</div>
+</div>
+</section>
+
+<section id="vet" class="section">
+<h2>Veterinary Marketplace</h2>
+<div class="card">
+<h3>Dr Sarah</h3>
+<p>Poultry Specialist</p>
+<button onclick="window.location.href='mailto:vet@kukulink.com'">Contact Vet</button>
+</div>
+</section>
+
+<section id="calendar" class="section">
+<h2>Farm Calendar & Notifications</h2>
+<div class="card">
+<p>📅 Vaccination - Monday</p>
+<p>🔔 Feed Delivery - Friday</p>
+<p>🐔 Egg Collection - Daily</p>
+</div>
+</section>
+
+<section id="payments" class="section">
+<h2>Payment Mockup</h2>
+<div class="card">
+<input type="text" placeholder="Mobile Money Number">
+<input type="number" placeholder="Amount">
+<button>Pay Now</button>
+</div>
+</section>
+
+<section class="section">
+<h2>Social Media & Browser Links</h2>
+<div class="socials">
+<button onclick="window.open('https://facebook.com')">Facebook</button>
+<button onclick="window.open('https://instagram.com')">Instagram</button>
+<button onclick="window.open('https://tiktok.com')">TikTok</button>
+<button onclick="window.open('https://google.com')">Google</button>
+<button onclick="window.open('https://youtube.com')">YouTube</button>
+</div>
+</section>
+
+<footer>
+<h3>KukuLink</h3>
+<p>Professional Poultry Marketplace</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

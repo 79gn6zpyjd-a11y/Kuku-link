@@ -1,0 +1,22 @@
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#0f0f0f;color:white;overflow-x:hidden}
+#splash{position:fixed;width:100%;height:100vh;background:linear-gradient(135deg,#ff9800,#ffcc70);display:flex;flex-direction:column;justify-content:center;align-items:center;animation:fade 3s forwards;z-index:9999}
+@keyframes fade{0%{opacity:1}80%{opacity:1}100%{opacity:0;visibility:hidden}}
+.logo{width:120px;height:120px;border-radius:25px}
+header{display:flex;justify-content:space-between;align-items:center;padding:15px;background:#111;position:sticky;top:0}
+.brand{display:flex;align-items:center;gap:10px}
+.toplogo{width:45px;height:45px;border-radius:12px}
+nav{display:flex;gap:10px;flex-wrap:wrap}
+nav a{text-decoration:none;color:#ffb300}
+.hero{height:70vh;background:url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=1200&auto=format&fit=crop') center/cover;display:flex;justify-content:center;align-items:center;padding:20px}
+.overlay{background:rgba(0,0,0,0.6);padding:30px;border-radius:20px;text-align:center}
+.section{padding:30px 20px}
+.card,.post,.market{background:#1b1b1b;padding:20px;border-radius:20px;margin-top:20px}
+button{padding:12px 18px;border:none;border-radius:12px;background:#ff9800;color:white;margin-top:10px;cursor:pointer}
+input,textarea{width:100%;padding:12px;margin-top:10px;border:none;border-radius:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.market img{width:100%;height:180px;object-fit:cover;border-radius:15px}
+.profilepic{width:120px;height:120px;border-radius:50%;object-fit:cover;display:block;margin:auto}
+.socials{display:flex;gap:10px;flex-wrap:wrap}
+footer{padding:30px;text-align:center;background:#111}
+@media(max-width:768px){header{flex-direction:column;gap:10px}.hero{height:60vh}}
